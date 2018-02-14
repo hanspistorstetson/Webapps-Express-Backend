@@ -39,7 +39,7 @@ export function sendResetPasswordEmail(user) {
     text: `
 		To Reset Password, follow this link.
 
-		${user.generateRestPasswordLink()}
+		${user.generateResetPasswordEmail()}
 
 		`
   };

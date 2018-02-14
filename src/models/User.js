@@ -60,14 +60,14 @@ schema.methods.generateResetPasswordToken = function generateResetPasswordToken(
       _id: this._id
     },
     process.env.JWT_SECRET,
-    { expiresIn: "1s" }
+    { expiresIn: "1h" }
   );
 };
 
 schema.methods.generateResetPasswordEmail = function generateResetPasswordEmail() {
-  return `${process.env.HOST}/reset_password/${
-    this.generateResetPasswordToken
-  }`;
+  return `${
+    process.env.HOST
+  }/reset_password/${this.generateResetPasswordToken()}`;
 };
 
 schema.plugin(uniqueValidator, { message: "This email is already taken" });
